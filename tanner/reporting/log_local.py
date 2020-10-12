@@ -11,5 +11,7 @@ class Reporting:
             session_data["timestamp"] = datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%S.%f')
             if session_data.get('post_data', None):
                 session_data['post_data'] = urlencode(session_data['post_data'])
+            else:
+                session_data['post_data'] = ''
             json.dump(session_data, out)
             out.write('\n')
